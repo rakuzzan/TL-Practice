@@ -11,7 +11,7 @@ namespace BubbleSort
     internal class Program
     {
 
-        public static void Sort(List<int> lst)
+        private static void Sort(List<int> lst)
         {
             for (int i = 0; i < lst.Count; i++)
             {
@@ -30,7 +30,7 @@ namespace BubbleSort
             (lst[right], lst[left]) = (lst[left], lst[right]);
         }
 
-        public static void PrintList(List<int> lst)
+        private static void PrintList(List<int> lst)
         {
             foreach (int el in lst)
             {
@@ -39,7 +39,7 @@ namespace BubbleSort
             Console.WriteLine();
         }
 
-        public static void ReadList(List<int> lst)
+        private static void ReadList(List<int> lst)
         {
             Console.WriteLine("Введите строку чисел через пробел для сортировки:");
 
@@ -53,7 +53,7 @@ namespace BubbleSort
             }
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var numbers = new List<int>();
 
