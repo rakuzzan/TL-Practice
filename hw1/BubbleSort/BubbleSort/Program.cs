@@ -17,7 +17,7 @@ namespace BubbleSort
             {
                 for (int j = 0; j < lst.Count - 1; j++)
                 {
-                    if (lst[j].CompareTo(lst[j + 1]) > 0)
+                    if (lst[j] > lst[j + 1])
                     {
                         Swap(lst, j, j + 1);
                     }
@@ -30,11 +30,11 @@ namespace BubbleSort
             (lst[right], lst[left]) = (lst[left], lst[right]);
         }
 
-        private static void PrintList(List<int> lst)
+        private static void PrintList(List<int> list)
         {
-            foreach (int el in lst)
+            foreach (int element in list)
             {
-                Console.Write(el + " ");
+                Console.Write(element + " ");
             }
             Console.WriteLine();
         }

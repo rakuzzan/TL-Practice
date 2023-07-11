@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Shapes;
 
-namespace Shapes;
-
-internal class Circle
+public class Circle: IShape
 {
     private double _radius;
     
@@ -15,7 +9,7 @@ internal class Circle
         get => _radius;
         set 
         { 
-            if (value < 0)
+            if (value <= 0)
             {
                 throw new ArgumentException("Radius can't be a negative number");
             }
@@ -34,8 +28,8 @@ internal class Circle
         return Math.PI* Math.Pow(Radius, 2);
     }
 
-    public double CalculatePerimetr()
+    public double CalculatePerimeter()
     {
-        return 2 + Math.PI * Radius;
+        return 2 * Math.PI * Radius;
     }
 }

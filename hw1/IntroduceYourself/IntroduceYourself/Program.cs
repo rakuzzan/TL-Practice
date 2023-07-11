@@ -44,7 +44,7 @@ namespace IntroduceYourself
         {
             Console.WriteLine("Введите ваш возраст: ");
             string ageString = Console.ReadLine();
-            var isValidAge = int.TryParse(ageString, out int outAge);
+            bool isValidAge = int.TryParse(ageString, out int outAge);
 
             int age = outAge;
 

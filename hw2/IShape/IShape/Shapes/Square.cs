@@ -1,6 +1,6 @@
 ﻿namespace Shapes;
 
-internal class Square
+public class Square: IShape
 {
     private double _side;
 
@@ -9,7 +9,7 @@ internal class Square
         get => _side; 
         set 
         {
-            if (value < 0)
+            if (value <= 0)
             {
                 throw new ArgumentException("Side of Square can't be a negative number");
             }
@@ -17,9 +17,9 @@ internal class Square
             _side = value;
         }
     }
-    public Square()
+    public Square(double side)
     {
-        Side = _side;
+        Side = side;
     }
 
     public double CalculateArea()
@@ -27,7 +27,7 @@ internal class Square
         return Math.Pow(Side, 2);
     }
 
-    public double CalculatePerimetr()
+    public double CalculatePerimeter()
     {
         return Side * 4;
     }
