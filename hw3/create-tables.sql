@@ -1,0 +1,44 @@
+USE SportCompetition;
+
+CREATE TABLE [Coach] (
+	CoachId INT IDENTITY (1,1) CONSTRAINT PK_Coach PRIMARY KEY NOT NULL,
+	FirstName NVARCHAR(50) NOT NULL,
+	LastName NVARCHAR(50) NOT NULL,
+	BirthDate DATE NOT NULL,
+);
+
+CREATE TABLE [Sportsman] (
+	SportsmanId INT IDENTITY (1,1) CONSTRAINT PK_Sportsman PRIMARY KEY NOT NULL,
+	FirstName NVARCHAR(50) NOT NULL,
+	LastName NVARCHAR(50) NOT NULL,
+	CoachId INT CONSTRAINT FK_Sportsman_Coach FOREIGN KEY (CoachId) REFERENCES Coach(CoachId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
+)
+
+CREATE TABLE [Competition] (
+	CompetitionId INT IDENTITY (1,1) CONSTRAINT PK_Competition PRIMARY KEY NOT NULL,
+	Date DATE NOT NULL,
+	Title NVARCHAR(100) NOT NULL,
+	Venue NVARCHAR(150) NOT NULL
+)
+
+CREATE TABLE [SportType] (
+	SportTypeId INT IDENTITY (1,1) CONSTRAINT PK_SportType PRIMARY KEY NOT NULL,
+	Title NVARCHAR(50) NOT NULL,
+	UnitOfMeasurment NVARCHAR(20) NOT NULL
+)
+
+CREATE TABLE [Performance] (
+    PerformanceId INT IDENTITY (1,1) CONSTRAINT PK_Performance PRIMARY KEY NOT NULL,
+    Value INT NOT NULL,
+    SportsmanId INT CONSTRAINT FK_Performance_Sportsman FOREIGN KEY (SportsmanId) REFERENCES [Sportsman](SportsmanId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+    CompetitionId INT CONSTRAINT FK_Performance_Competition FOREIGN KEY (CompetitionId) REFERENCES Competition(CompetitionId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	SportTypeId INT CONSTRAINT FK_Performance_SportType FOREIGN KEY (SportTypeId) REFERENCES SportType(SportTypeId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+);
