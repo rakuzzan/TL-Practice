@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+  <div class="swagger">
+    <h1 class="swagger__header">API Handler</h1>
+    <div class="swagger__tab-wrapper swagger__tab--get">
+      <div class="swagger__tab-text-wrapper">
+        <h2 class="swagger__tab-title">Get all users</h2>
+        <p class="swagger__tab-url">Path: /users</p>
+      </div>
+        <label class="textarea-label">
+          Response:
+          <textarea class="swagger-textarea" id="textarea-response-get-all" placeholder="Here will be response..."></textarea>
+        </label>
+        <button class="btn swagger-get-btn" id="btn-get-all">GET</button>
+    </div>
+
+    <div class="swagger__tab-wrapper swagger__tab--get">
+      <div class="swagger__tab-text-wrapper">
+        <h2 class="swagger__tab-title">Get user by ID</h2>
+        <p class="swagger__tab-url">Path: /users/id</p>
+      </div>
+      <label class="textarea-label">
+        Your data:
+        <input class="swagger-input" id="input-get" placeholder="UserId">
+      </label>
+      <button class="btn swagger-get-btn" id="btn-get">GET</button>
+      <label class="textarea-label">
+        Response:
+        <textarea class="swagger-textarea" id="textarea-response-get" placeholder="Here will be response..."></textarea>
+      </label>
+    </div>
+
+    <div class="swagger__tab-wrapper swagger__tab--post">
+      <div class="swagger__tab-text-wrapper">
+        <h2 class="swagger__tab-title">Create a new user</h2>
+        <p class="swagger__tab-url">Path: /users</p>
+      </div>
+      <label class="textarea-label">
+        Your data:
+        <textarea class="swagger-textarea" id="input-post" placeholder="Write here an information about new user..."></textarea>
+      </label>
+      <button class="btn swagger-post-btn" id="btn-post">POST</button>
+      <label class="textarea-label">
+        Response:
+        <textarea class="swagger-textarea" id="textarea-response-post" placeholder="Here will be response..."></textarea>
+      </label>
+    </div>
+
+    <div class="swagger__tab-wrapper swagger__tab--put">
+      <div class="swagger__tab-text-wrapper">
+        <h2 class="swagger__tab-title">Update user by ID</h2>
+        <p class="swagger__tab-url">Path: /users/id</p>
+      </div>
+      <label class="textarea-label">
+        Your data:
+        <input class="swagger-input" id="input-put" placeholder="UserId">
+        <textarea class="swagger-textarea" id="textarea-put" placeholder="Write here an information about user..."></textarea>
+      </label>
+      <button class="btn swagger-put-btn" id="btn-put">PUT</button>
+      <label class="textarea-label">
+        Response:
+        <textarea class="swagger-textarea" id="textarea-response-put" placeholder="Here will be response..."></textarea>
+      </label>
+    </div>
+
+    <div class="swagger__tab-wrapper swagger__tab--delete">
+      <div class="swagger__tab-text-wrapper">
+        <h2 class="swagger__tab-title">Delete user by ID</h2>
+        <p class="swagger__tab-url">Path: /users/id</p>
+      </div>
+      <label class="textarea-label">
+        Your data:
+        <input class="swagger-input" id="input-delete" placeholder="Write here a userID...">
+      </label>
+      <button class="btn swagger-delete-btn" id="btn-delete">DELETE</button>
+      <label class="textarea-label">
+        Response:
+        <textarea class="swagger-textarea" id="textarea-response-delete" placeholder="Here will be response..."></textarea>
+      </label>
+    </div>
+  </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
