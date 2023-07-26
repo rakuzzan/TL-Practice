@@ -51,8 +51,9 @@ body {
 .swagger {
   display: flex;
   flex-direction: column;
+  width: 865px;
   padding: 20px;
-  margin: 50px 450px;
+  margin: 50px auto;
   background-color: #ffffff;
   border-radius: 10px;
 }
