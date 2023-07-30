@@ -11,8 +11,8 @@ namespace DatabaseProvider.Configurations
         {
             builder.ToTable("Competition").HasKey(a => a.CompetitionId);
 
-            builder.Property(a => a.Date).IsRequired();
             builder.Property(a => a.Title).IsRequired().HasMaxLength(100);
+            builder.Property(a => a.Date).IsRequired();
             builder.Property(a => a.Venue).IsRequired().HasMaxLength(150);
 
         }

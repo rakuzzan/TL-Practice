@@ -16,9 +16,9 @@ namespace CoachDB
 
         private static ICoach _coach;
         private static ICompetition _competition;
-        private static IStudio _studio;
-        private static IViewer _viewer;
-        private static IWatched _watched;
+        private static ISportsman _sportsman;
+        private static IPerformance _performance;
+        private static ISportType _sportType;
 
         public static void Main()
         {
@@ -26,9 +26,9 @@ namespace CoachDB
 
             _coach = new CoachRepository(_applicationContext);
             _competition = new CompetitionRepository(_applicationContext);
-            _studio = new StudioRepository(_applicationContext);
-            _viewer = new ViewerRepository(_applicationContext);
-            _watched = new WatchedRepository(_applicationContext);
+            _sportsman = new SportsmanRepository(_applicationContext);
+            _performance = new PerformanceRepository(_applicationContext);
+            _sportType = new SportTypeRepository(_applicationContext);
 
 
         }
@@ -54,8 +54,8 @@ namespace CoachDB
                         
                     // Competition
 
-                    case "get-all-countries":
-                        GetAllCountries();
+                    case "get-all-competitions":
+                        GetAllCompetitions();
                         break;
                     case "get-competition-by-id":
                         GetCompetitionById(parameters);
@@ -67,19 +67,19 @@ namespace CoachDB
                         DeleteCompetition(parameters);
                         break;
 
-                    // Studio
+                    // Sportsman
 
-                    case "get-all-studios":
-                        GetAllStudios();
+                    case "get-all-Sportsmans":
+                        GetAllSportsmans();
                         break;
-                    case "get-studio-by-id":
-                        GetStudioById(parameters);
+                    case "get-Sportsman-by-id":
+                        GetSportsmanById(parameters);
                         break;
-                    case "add-studio":
-                        AddStudio(parameters);
+                    case "add-Sportsman":
+                        AddSportsman(parameters);
                         break;
-                    case "delete-studio":
-                        DeleteStudio(parameters);
+                    case "delete-Sportsman":
+                        DeleteSportsman(parameters);
                         break;
 
                     // Coach
@@ -97,40 +97,34 @@ namespace CoachDB
                         DeleteCoach(parameters);
                         break;
 
-                    // Viewer
-                    case "get-all-viewers":
-                        GetAllViewers();
+                    // Performance
+                    case "get-all-performances":
+                        GetAllPerformances();
                         break;
-                    case "get-viewer-by-id":
-                        GetViewerById(parameters);
+                    case "get-performance-by-id":
+                        GetPerformanceById(parameters);
                         break;
-                    case "add-viewer":
-                        AddViewer(parameters);
+                    case "add-performance":
+                        AddPerformance(parameters);
                         break;
-                    case "delete-viewer":
-                        DeleteViewer(parameters);
+                    case "delete-performance":
+                        DeletePerformance(parameters);
                         break;
 
 
-                    // Watched
+                    // SportType
 
-                    case "get-all-watched":
-                        GetAllWatched();
+                    case "get-all-sport-type":
+                        GetAllSportType();
                         break;
-                    case "get-watched-by-viewer-id":
-                        GetWatchedByViewerId(parameters);
+                    case "get-sport-type-by-id":
+                        GetSportTypeById(parameters);
                         break;
-                    case "get-watched-by-coach-id":
-                        GetWatchedByCoachId(parameters);
+                    case "add-sport-type":
+                        AddSportType(parameters);
                         break;
-                    case "get-watched-by-id":
-                        GetWatchedById(parameters);
-                        break;
-                    case "add-watched":
-                        AddWatched(parameters);
-                        break;
-                    case "delete-watched":
-                        DeleteWatched(parameters);
+                    case "delete-sport-type":
+                        DeleteSportType(parameters);
                         break;
 
                     default:
@@ -141,332 +135,277 @@ namespace CoachDB
 
             }
         }
-        public static void GetAllCountries()
+        public static void GetAllCompetitions()
         {
-            List<Competition> countries = _competition.GetAll();
+            List<Competition> competitions = _competition.GetAll();
 
-            if (countries.Count == 0)
+            if (competitions.Count == 0)
             {
-                Console.WriteLine("The count of countries are zero.");
+                Console.WriteLine("The count of competitions are zero.");
             }
 
-            foreach (Competition Competition in countries)
+            foreach (Competition competition in competitions)
             {
-                Console.WriteLine(Competition);
+                Console.WriteLine(competition);
             }
         }
 
         public static void GetCompetitionById(List<string> parameters)
         {
-            int CompetitionId = int.Parse(parameters[1]);
+            int competitionId = int.Parse(parameters[1]);
 
-            Competition Competition = _competition.GetById(CompetitionId);
-            if (Competition == null)
+            Competition competition = _competition.GetById(competitionId);
+            if (competition == null)
             {
-                Console.WriteLine($"Competition with id {CompetitionId} does not exist.");
+                Console.WriteLine($"Competition with id {competitionId} does not exist.");
                 return;
             }
         }
 
         public static void AddCompetition(List<string> parameters)
         {
-            Competition Competition = new()
+            Competition competition = new()
             {
-                NameOfCompetition = parameters[1]
+                Title = parameters[1],
+                Date = DateTime.Parse(parameters[2]),
+                Venue = parameters[3]
             };
 
-            _competition.Add(Competition);
+            _competition.Add(competition);
             _competition.SaveChanges();
         }
 
         public static void DeleteCompetition(List<string> parameters)
         {
-            int CompetitionId = int.Parse(parameters[1]);
-            Competition Competition = _competition.GetById(CompetitionId);
+            int competitionId = int.Parse(parameters[1]);
+            Competition competition = _competition.GetById(competitionId);
 
-            _competition.Remove(Competition);
+            _competition.Remove(competition);
             _competition.SaveChanges();
         }
 
-        // Studio
+        // Sportsman
 
-        public static void GetAllStudios()
+        public static void GetAllSportsmans()
         {
-            List<Studio> studios = _studio.GetAll();
+            List<Sportsman> sportsmans = _sportsman.GetAll();
 
-            if (studios.Count == 0)
+            if (sportsmans.Count == 0)
             {
-                Console.WriteLine("The count of studios are zero.");
+                Console.WriteLine("The count of sportsmans are zero.");
                 return;
             }
 
-            foreach (Studio studio in studios)
+            foreach (Sportsman sportsman in sportsmans)
             {
-                Console.WriteLine(studio);
+                Console.WriteLine(sportsman);
             }
         }
 
-        public static void GetStudioById(List<string> parameters)
+        public static void GetSportsmanById(List<string> parameters)
         {
-            int studioId = int.Parse(parameters[1]);
+            int sportsmanId = int.Parse(parameters[1]);
 
-            Studio studio = _studio.GetById(studioId);
+            Sportsman sportsman = _sportsman.GetById(sportsmanId);
 
-            if (studio == null)
+            if (sportsman == null)
             {
-                Console.WriteLine($"Competition with id {studioId} does not exist.");
+                Console.WriteLine($"Competition with id {sportsmanId} does not exist.");
                 return;
             }
         }
 
-        public static void AddStudio(List<string> parameters)
+        public static void AddSportsman(List<string> parameters)
         {
 
-            Studio studio = new()
+            Sportsman sportsman = new()
             {
-                Name = parameters[1],
-                FoundationYear = DateTime.Parse(parameters[2]),
-                CompetitionId = int.Parse(parameters[3]),
-                Competition = _competition.GetById(int.Parse(parameters[4])),
-                CEO = parameters[5]
+                FirstName = parameters[1],
+                LastName = parameters[2],
+                CoachId = int.Parse(parameters[3]),
+                Coach = _coach.GetById(int.Parse(parameters[4]))
             };
 
-            _studio.Add(studio);
-            _studio.SaveChanges();
+            _sportsman.Add(sportsman);
+            _sportsman.SaveChanges();
         }
 
-        public static void DeleteStudio(List<string> parameters)
+        public static void DeleteSportsman(List<string> parameters)
         {
-            int studioId = int.Parse(parameters[1]);
+            int sportsmanId = int.Parse(parameters[1]);
 
-            Studio studio = _studio.GetById(studioId);
+            Sportsman sportsman = _sportsman.GetById(sportsmanId);
 
-            _studio.Remove(studio);
-            _studio.SaveChanges();
+            _sportsman.Remove(sportsman);
+            _sportsman.SaveChanges();
         }
 
         // Coach 
 
         public static void GetAllCoachs()
         {
-            List<Coach> Coachs = _coach.GetAll();
+            List<Coach> coachs = _coach.GetAll();
 
-            if (Coachs.Count == 0)
+            if (coachs.Count == 0)
             {
                 Console.WriteLine("The count of Coach are zero.");
             }
 
-            foreach (Coach Coach in Coachs)
+            foreach (Coach coach in coachs)
             {
-                Console.WriteLine(Coach);
+                Console.WriteLine(coach);
             }
         }
 
         public static void GetCoachById(List<string> parameters)
         {
-            int CoachId = int.Parse(parameters[1]);
+            int coachId = int.Parse(parameters[1]);
 
-            Coach Coach = _coach.GetById(CoachId);
+            Coach coach = _coach.GetById(coachId);
 
-            if (Coach == null)
+            if (coach == null)
             {
-                Console.WriteLine($"Coach with id {CoachId} does not exist");
+                Console.WriteLine($"Coach with id {coachId} does not exist");
                 return;
             }
 
-            Console.WriteLine(Coach);
+            Console.WriteLine(coach);
         }
 
         public static void AddCoach(List<string> parameters)
         {
-            Coach Coach = new()
+            Coach coach = new()
             {
-                Title = parameters[1],
-                ReleaseDate = DateTime.Parse(parameters[2]),
-                Genre = parameters[3],
-                StudioId = int.Parse(parameters[4]),
-                Studio = _studio.GetById(int.Parse(parameters[5])),
-                AgeRatings = (byte)int.Parse(parameters[6])
+                FirstName = parameters[1],
+                LastName = parameters[2],
+                BirthDate = DateTime.Parse(parameters[3])
             };
 
-            _coach.Add(Coach);
+            _coach.Add(coach);
             _coach.SaveChanges();
         }
 
         public static void DeleteCoach(List<string> parameters)
         {
-            int CoachId = int.Parse(parameters[1]);
+            int coachId = int.Parse(parameters[1]);
 
-            Coach Coach = _coach.GetById(CoachId);
+            Coach coach = _coach.GetById(coachId);
 
-            _coach.Remove(Coach);
+            _coach.Remove(coach);
             _coach.SaveChanges();
         }
 
-        // Viewer
+        // Performance
 
-        public static void GetAllViewers()
+        public static void GetAllPerformances()
         {
-            List<Viewer> viewers = _viewer.GetAll();
+            List<Performance> performances = _performance.GetAll();
 
-            if (viewers.Count == 0)
+            if (performances.Count == 0)
             {
-                Console.WriteLine("The count of viewers are zero");
+                Console.WriteLine("The count of performances are zero");
             }
 
-            foreach (Viewer viewer in viewers)
+            foreach (Performance performance in performances)
             {
-                Console.WriteLine(viewer);
+                Console.WriteLine(performance);
             }
         }
 
-        public static void GetViewerById(List<string> parameters)
+        public static void GetPerformanceById(List<string> parameters)
         {
-            int viewerId = int.Parse(parameters[1]);
+            int performanceId = int.Parse(parameters[1]);
 
-            Viewer viewer = _viewer.GetById(viewerId);
+            Performance performance = _performance.GetById(performanceId);
 
-            if (viewer == null)
+            if (performance == null)
             {
-                Console.WriteLine($"Viewer with id {viewerId} does not exist");
+                Console.WriteLine($"Performance with id {performanceId} does not exist");
                 return;
             }
-            Console.WriteLine(viewer);
+            Console.WriteLine(performance);
         }
 
-        public static void AddViewer(List<string> parameters)
+        public static void AddPerformance(List<string> parameters)
         {
-            Viewer viewer = new()
+            Performance performance = new()
             {
-                Nickname = parameters[1],
-                Age = (byte)int.Parse(parameters[2]),
-                Gender = (byte)int.Parse(parameters[3])
+                Value = double.Parse(parameters[1]),
+                SportsmanId = int.Parse(parameters[2]),
+                Sportsman = _sportsman.GetById(int.Parse(parameters[4])),
+                CompetitionId = int.Parse(parameters[5]),
+                Competition = _competition.GetById(int.Parse(parameters[6])),
+                SportTypeId = int.Parse(parameters[7]),
+                SportType = _sportType.GetById(int.Parse(parameters[8])),
+
             };
 
-            _viewer.Add(viewer);
-            _viewer.SaveChanges();
+            _performance.Add(performance);
+            _performance.SaveChanges();
         }
 
-        public static void DeleteViewer(List<string> parameters)
+        public static void DeletePerformance(List<string> parameters)
         {
-            int viewerId = int.Parse(parameters[1]);
+            int performanceId = int.Parse(parameters[1]);
 
-            Viewer viewer = _viewer.GetById(viewerId);
+            Performance performance = _performance.GetById(performanceId);
 
-            _viewer.Remove(viewer);
-            _viewer.SaveChanges();
+            _performance.Remove(performance);
+            _performance.SaveChanges();
         }
 
-        // Watched
+        // SportType
 
-        public static void GetAllWatched()
+        public static void GetAllSportType()
         {
-            List<Watched> watcheds = _watched.GetAll();
+            List<SportType> sportTypes = _sportType.GetAll();
 
-            if (watcheds.Count == 0)
+            if (sportTypes.Count == 0)
             {
-                Console.WriteLine("The count of watcheds are zero.");
+                Console.WriteLine("The count of SportTypes are zero.");
             }
 
-            foreach (Watched watched in watcheds)
+            foreach (SportType sportType in sportTypes)
             {
-                Console.WriteLine(watched);
+                Console.WriteLine(sportType);
             }
         }
 
-        public static void GetWatchedById(List<string> parameters)
+        public static void GetSportTypeById(List<string> parameters)
         {
-            int watchedId = int.Parse(parameters[1]);
+            int sportTypeId = int.Parse(parameters[1]);
 
-            Watched watched = _watched.GetWatchedById(watchedId);
+            SportType sportType = _sportType.GetById(sportTypeId);
 
-            if (watched == null)
+            if (sportType == null)
             {
-                Console.WriteLine($"The watch with id {watchedId} does not exist");
+                Console.WriteLine($"The sport type with id {sportTypeId} does not exist");
                 return;
             }
 
-            Console.WriteLine(watched);
+            Console.WriteLine(sportType);
         }
 
-        public static void GetWatchedByCoachId(List<string> parameters)
+        public static void AddSportType(List<string> parameters)
         {
-            int CoachId = int.Parse(parameters[1]);
-
-            List<Watched> watched = _watched.GetByCoachId(CoachId);
-
-            if (watched.Count == 0)
+            SportType sportType = new()
             {
-                Console.WriteLine($"Coach with id {CoachId} does not exist or nobody don't watch it");
-                return;
-            }
-
-            foreach (Watched w in watched)
-            {
-                Console.WriteLine(w);
-            }
-        }
-
-        public static void GetWatchedByViewerId(List<string> parameters)
-        {
-            int viewerId = int.Parse(parameters[0]);
-
-            List<Watched> watcheds = _watched.GetByViewerId(viewerId);
-
-            if (watcheds.Count == 0)
-            {
-                Console.WriteLine($"The viewer with id {viewerId} does not exist or doesn't watch any Coach.");
-            }
-
-            foreach (Watched watched in watcheds)
-            {
-                Console.WriteLine(watched);
-            }
-        }
-
-        public static void AddWatched(List<string> parameters)
-        {
-            int CoachId = int.Parse(parameters[0]);
-            int viewerId = int.Parse(parameters[1]);
-
-            Coach Coach = _coach.GetById(CoachId);
-
-            if (Coach == null)
-            {
-                Console.WriteLine($"The Coach with id {CoachId} does not exist");
-                return;
-            }
-
-            Viewer viewer = _viewer.GetById(viewerId);
-
-            if (viewer == null)
-            {
-
-                Console.WriteLine($"The viewer with id {viewerId} does not exist");
-                return;
-            }
-
-            Watched watched = new()
-            {
-                CoachId = CoachId,
-                Coach = _coach.GetById(CoachId),
-
-                ViewerId = viewerId,
-                Viewer = _viewer.GetById(viewerId)
+                Title = parameters[1],
+                UnitOfMeasurment = parameters[2],
             };
 
-            _watched.Add(watched);
-            _watched.SaveChanges();
+            _sportType.Add(sportType);
+            _sportType.SaveChanges();
         }
 
-        public static void DeleteWatched(List<string> parameters)
+        public static void DeleteSportType(List<string> parameters)
         {
-            int watchedId = int.Parse(parameters[1]);
+            int sportTypeId = int.Parse(parameters[1]);
 
-            Watched watched = _watched.GetWatchedById(watchedId);
+            SportType sportType = _sportType.GetById(sportTypeId);
 
-            _watched.Remove(watched);
-            _watched.SaveChanges();
+            _sportType.Remove(sportType);
+            _sportType.SaveChanges();
         }
 
     }
