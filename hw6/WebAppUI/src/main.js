@@ -1,6 +1,6 @@
 import "./style.css";
 
-const API_URL = "https://localhost:5140";
+const API_URL = "https://localhost:7263";
 const OFFSET_JSON = 2;
 
 const getAllUsersBtn = document.querySelector("#btn-get-all");
@@ -48,6 +48,16 @@ const createUser = async user => {
   return response.json();
 };
 
+const deleteUser = async id => {
+  const options = {
+    method: "DELETE",
+  };
+
+  const response = await fetch(`${API_URL}/users/${id}`, options);
+
+  return response.json();
+};
+
 const updateUser = async (userId, updatedUser) => {
   const options = {
     body: JSON.stringify(updatedUser),
@@ -58,16 +68,6 @@ const updateUser = async (userId, updatedUser) => {
   };
 
   const response = await fetch(`${API_URL}/users/${userId}`, options);
-
-  return response.json();
-};
-
-const deleteUser = async id => {
-  const options = {
-    method: "DELETE",
-  };
-
-  const response = await fetch(`${API_URL}/users/${id}`, options);
 
   return response.json();
 };
@@ -89,9 +89,9 @@ const handleGetUser = async () => {
 
 const handleCreateUser = async () => {
   const newUser = createUserInput.value;
-  const validatedJSON = JSON.parse(newUser);
+  const parsedJSON = JSON.parse(newUser);
 
-  const response = await createUser(validatedJSON);
+  const response = await createUser(parsedJSON);
 
   createUserResponseTextarea.value = "";
   createUserResponseTextarea.value = JSON.stringify(response, null, OFFSET_JSON);
@@ -110,9 +110,9 @@ const handleUpdateUser = async () => {
   const userId = updateUserIdInput.value;
 
   const updatedUser = updateUserInput.value;
-  const validatedJSON = JSON.parse(updatedUser);
+  const parsedJSON = JSON.parse(updatedUser);
 
-  const response = await updateUser(userId, validatedJSON);
+  const response = await updateUser(userId, parsedJSON);
 
   updateUserResponseTextarea.value = "";
   updateUserResponseTextarea.value = JSON.stringify(response, null, OFFSET_JSON);

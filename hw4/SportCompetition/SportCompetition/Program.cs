@@ -10,7 +10,7 @@ namespace CoachDB
     public class Program
     {
         private const string ConnectionString =
-           "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CoachDBEF;Pooling=true;Integrated Security=SSPI";
+           "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=SportCompetitionEF;Pooling=true;Integrated Security=SSPI";
 
         private static ApplicationContext _applicationContext;
 
