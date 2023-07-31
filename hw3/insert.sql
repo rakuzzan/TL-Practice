@@ -1,41 +1,41 @@
-USE SportCompetition;
+ï»¿USE SportCompetition;
 
 -- Coach <===
 INSERT INTO [Coach] (FirstName, LastName, BirthDate)
-VALUES ('Èâàí', 'Èâàíîâ', '1980-01-01')
+VALUES ('Ð˜Ð²Ð°Ð½', 'Ð˜Ð²Ð°Ð½Ð¾Ð²', '1980-01-01')
 
 INSERT INTO [Coach] (FirstName, LastName, BirthDate)
-VALUES ('Ìàðèÿ', 'Ïåòðîâà', '1990-05-15')
+VALUES ('ÐœÐ°Ñ€Ð¸Ñ', 'ÐŸÐµÑ‚Ñ€Ð¾Ð²Ð°', '1990-05-15')
 
 INSERT INTO [Coach] (FirstName, LastName, BirthDate)
-VALUES ('Àëåêñåé', 'Ñèäîðîâ', '1975-11-30')
+VALUES ('ÐÐ»ÐµÐºÑÐµÐ¹', 'Ð¡Ð¸Ð´Ð¾Ñ€Ð¾Ð²', '1975-11-30')
 
 -- Sportsman <===
 INSERT INTO [Sportsman] (FirstName, LastName, CoachId)
-VALUES ('Àíäðåé', 'Ñìèðíîâ', 1)
+VALUES ('ÐÐ½Ð´Ñ€ÐµÐ¹', 'Ð¡Ð¼Ð¸Ñ€Ð½Ð¾Ð²', 1)
 INSERT INTO [Sportsman] (FirstName, LastName, CoachId)
-VALUES ('Åëåíà', 'Èâàíîâà', 2)
+VALUES ('Ð•Ð»ÐµÐ½Ð°', 'Ð˜Ð²Ð°Ð½Ð¾Ð²Ð°', 2)
 INSERT INTO [Sportsman] (FirstName, LastName, CoachId)
-VALUES ('Äìèòðèé', 'Ïåòðîâ', 3)
+VALUES ('Ð”Ð¼Ð¸Ñ‚Ñ€Ð¸Ð¹', 'ÐŸÐµÑ‚Ñ€Ð¾Ð²', 3)
 
 -- Competition <===
 INSERT INTO [Competition] (Date, Title, Venue)
-VALUES ('2023-08-05', '×åìïèîíàò Ðîññèè ïî ëåãêîé àòëåòèêå', 'Ìîñêâà, ñòàäèîí "Ëóæíèêè"')
+VALUES ('2023-08-05', 'Ð§ÐµÐ¼Ð¿Ð¸Ð¾Ð½Ð°Ñ‚ Ð Ð¾ÑÑÐ¸Ð¸ Ð¿Ð¾ Ð»ÐµÐ³ÐºÐ¾Ð¹ Ð°Ñ‚Ð»ÐµÑ‚Ð¸ÐºÐµ', 'ÐœÐ¾ÑÐºÐ²Ð°, ÑÑ‚Ð°Ð´Ð¸Ð¾Ð½ "Ð›ÑƒÐ¶Ð½Ð¸ÐºÐ¸"')
 
 INSERT INTO [Competition] (Date, Title, Venue)
-VALUES ('2023-09-10', 'Êóáîê Åâðîïû ïî ïëàâàíèþ', 'Áàðñåëîíà, áàññåéí "Ïàëàâ äå ëîñ Äåïîðòåñ"')
+VALUES ('2023-09-10', 'ÐšÑƒÐ±Ð¾Ðº Ð•Ð²Ñ€Ð¾Ð¿Ñ‹ Ð¿Ð¾ Ð¿Ð»Ð°Ð²Ð°Ð½Ð¸ÑŽ', 'Ð‘Ð°Ñ€ÑÐµÐ»Ð¾Ð½Ð°, Ð±Ð°ÑÑÐµÐ¹Ð½ "ÐŸÐ°Ð»Ð°Ð² Ð´Ðµ Ð»Ð¾Ñ Ð”ÐµÐ¿Ð¾Ñ€Ñ‚ÐµÑ"')
 
 INSERT INTO [Competition] (Date, Title, Venue)
-VALUES ('2023-10-20', '×åìïèîíàò ìèðà ïî ôèãóðíîìó êàòàíèþ', 'Òîêèî, ëåäîâûé äâîðåö "Õàìàðèêþ"')
+VALUES ('2023-10-20', 'Ð§ÐµÐ¼Ð¿Ð¸Ð¾Ð½Ð°Ñ‚ Ð¼Ð¸Ñ€Ð° Ð¿Ð¾ Ñ„Ð¸Ð³ÑƒÑ€Ð½Ð¾Ð¼Ñƒ ÐºÐ°Ñ‚Ð°Ð½Ð¸ÑŽ', 'Ð¢Ð¾ÐºÐ¸Ð¾, Ð»ÐµÐ´Ð¾Ð²Ñ‹Ð¹ Ð´Ð²Ð¾Ñ€ÐµÑ† "Ð¥Ð°Ð¼Ð°Ñ€Ð¸ÐºÑŽ"')
 
 -- SportType <===
 
 INSERT INTO [SportType] (Title, UnitOfMeasurment)
-VALUES ('Áåã íà 100 ìåòðîâ', 'ñåê')
+VALUES ('Ð‘ÐµÐ³ Ð½Ð° 100 Ð¼ÐµÑ‚Ñ€Ð¾Ð²', 'ÑÐµÐº')
 INSERT INTO [SportType] (Title, UnitOfMeasurment)
-VALUES ('Ïðûæêè â âûñîòó', 'ì')
+VALUES ('ÐŸÑ€Ñ‹Ð¶ÐºÐ¸ Ð² Ð²Ñ‹ÑÐ¾Ñ‚Ñƒ', 'Ð¼')
 INSERT INTO [SportType] (Title, UnitOfMeasurment)
-VALUES ('Ïëàâàíèå íà 200 ìåòðîâ âîëüíûì ñòèëåì', 'ìèí')
+VALUES ('ÐŸÐ»Ð°Ð²Ð°Ð½Ð¸Ðµ Ð½Ð° 200 Ð¼ÐµÑ‚Ñ€Ð¾Ð² Ð²Ð¾Ð»ÑŒÐ½Ñ‹Ð¼ ÑÑ‚Ð¸Ð»ÐµÐ¼', 'Ð¼Ð¸Ð½')
 
 -- Performance <===
 

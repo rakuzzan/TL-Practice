@@ -1,18 +1,18 @@
-UPDATE [Coach]
-SET FirstName = 'Федор'
+п»їUPDATE [Coach]
+SET FirstName = 'Р¤РµРґРѕСЂ'
 WHERE CoachId = 1;
 
 UPDATE [Sportsman]
-SET LastName = 'Громов'
-WHERE LastName LIKE 'Иван%';
+SET LastName = 'Р“СЂРѕРјРѕРІ'
+WHERE LastName LIKE 'РРІР°РЅ%';
 
 UPDATE [Competition]
-SET Venue = 'Россия, Сочи, Олимпийский стадион «Фишт»'
+SET Venue = 'Р РѕСЃСЃРёСЏ, РЎРѕС‡Рё, РћР»РёРјРїРёР№СЃРєРёР№ СЃС‚Р°РґРёРѕРЅ В«Р¤РёС€С‚В»'
 WHERE Date BETWEEN '2023-08-01' AND '2023-08-31';
 
 UPDATE [SportType]
-SET Title = 'Плавание 100 метров'
-WHERE Title IN ('Бег на 100 метров', 'Прыжки в высоту');
+SET Title = 'РџР»Р°РІР°РЅРёРµ 100 РјРµС‚СЂРѕРІ'
+WHERE Title IN ('Р‘РµРі РЅР° 100 РјРµС‚СЂРѕРІ', 'РџСЂС‹Р¶РєРё РІ РІС‹СЃРѕС‚Сѓ');
 
 UPDATE [Performance]
 SET Value = 11.2
