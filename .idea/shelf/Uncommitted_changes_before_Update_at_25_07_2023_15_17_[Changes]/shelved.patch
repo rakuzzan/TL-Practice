@@ -1,0 +1,199 @@
+Index: hw4/EntityPractice/Core/Models/Competition.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw4/EntityPractice/Core/Models/Competition.cs b/hw4/EntityPractice/Core/Models/Competition.cs
+new file mode 100644
+--- /dev/null	(date 1689262784088)
++++ b/hw4/EntityPractice/Core/Models/Competition.cs	(date 1689262784088)
+@@ -0,0 +1,12 @@
++using System;
++
++namespace Core
++{
++    public class Competition
++    {
++        public int Id { get; set; }
++        public DateTimeOffset Date { get; set; }
++        public string Title { get; set; }
++        public string Venue { get; set; }
++    }
++}
+\ No newline at end of file
+Index: hw4/EntityPractice/Core/Models/Sportsman.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw4/EntityPractice/Core/Models/Sportsman.cs b/hw4/EntityPractice/Core/Models/Sportsman.cs
+new file mode 100644
+--- /dev/null	(date 1689263359293)
++++ b/hw4/EntityPractice/Core/Models/Sportsman.cs	(date 1689263359293)
+@@ -0,0 +1,12 @@
++namespace Core
++{
++    public class Sportsman
++    {
++        public int Id { get; set; }
++        public string FirstName { get; set; }
++        public string SecondName { get; set; }
++
++        public int CoachId { get; set; }
++        public Coach Coach { get; set; }
++     }
++}
+\ No newline at end of file
+Index: .idea/TL-Practice-2023.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/TL-Practice-2023.iml b/.idea/TL-Practice-2023.iml
+new file mode 100644
+--- /dev/null	(date 1690287321871)
++++ b/.idea/TL-Practice-2023.iml	(date 1690287321871)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: hw4/EntityPractice/Core/Models/Performance.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw4/EntityPractice/Core/Models/Performance.cs b/hw4/EntityPractice/Core/Models/Performance.cs
+new file mode 100644
+--- /dev/null	(date 1689263359326)
++++ b/hw4/EntityPractice/Core/Models/Performance.cs	(date 1689263359326)
+@@ -0,0 +1,18 @@
++namespace Core
++{
++    public class Performance
++    {
++        public int Id { get; set; }
++        public int Value { get; set; }
++        
++        public int SpotsmanId { get; set; }
++        public Sportsman Sportsman { get; set; }
++        
++        public int CompetitionId { get; set; }
++        public Competition Competition { get; set; }
++        
++        public int SportTypeId { get; set; }
++        public SportType SportType { get; set; }
++        
++    }
++}
+\ No newline at end of file
+Index: hw4/EntityPractice/Core/Models/SportType.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw4/EntityPractice/Core/Models/SportType.cs b/hw4/EntityPractice/Core/Models/SportType.cs
+new file mode 100644
+--- /dev/null	(date 1689263359309)
++++ b/hw4/EntityPractice/Core/Models/SportType.cs	(date 1689263359309)
+@@ -0,0 +1,9 @@
++namespace Core
++{
++    public class SportType
++    {
++        public int Id { get; set; }
++        public string Title { get; set; }
++        public string UnitOfMeasurement { get; set; }
++    }
++}
+\ No newline at end of file
+Index: hw2/IShape/IShape.sln
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nMicrosoft Visual Studio Solution File, Format Version 12.00\r\n# Visual Studio Version 17\r\nVisualStudioVersion = 17.4.33110.190\r\nMinimumVisualStudioVersion = 10.0.40219.1\r\nProject(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"IShape\", \"IShape\\IShape.csproj\", \"{F7CDFB92-2716-4B40-92F9-77249272A4C8}\"\r\nEndProject\r\nGlobal\r\n\tGlobalSection(SolutionConfigurationPlatforms) = preSolution\r\n\t\tDebug|Any CPU = Debug|Any CPU\r\n\t\tRelease|Any CPU = Release|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(ProjectConfigurationPlatforms) = postSolution\r\n\t\t{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU\r\n\t\t{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU\r\n\t\t{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU\r\n\t\t{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Release|Any CPU.Build.0 = Release|Any CPU\r\n\tEndGlobalSection\r\n\tGlobalSection(SolutionProperties) = preSolution\r\n\t\tHideSolutionNode = FALSE\r\n\tEndGlobalSection\r\n\tGlobalSection(ExtensibilityGlobals) = postSolution\r\n\t\tSolutionGuid = {BC2B4389-864F-41FC-8576-24998A27CBCE}\r\n\tEndGlobalSection\r\nEndGlobal\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw2/IShape/IShape.sln b/hw2/IShape/IShape.sln
+--- a/hw2/IShape/IShape.sln	(revision 30e8aadd042cf7ed59966c8c66cdd2eae3651a38)
++++ b/hw2/IShape/IShape.sln	(date 1689025388999)
+@@ -5,6 +5,8 @@
+ MinimumVisualStudioVersion = 10.0.40219.1
+ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IShape", "IShape\IShape.csproj", "{F7CDFB92-2716-4B40-92F9-77249272A4C8}"
+ EndProject
++Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IShapeTests", "IShapeTests\IShapeTests.csproj", "{9A1AA1B8-8274-456E-9A43-14B0E2FCDE1F}"
++EndProject
+ Global
+ 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+ 		Debug|Any CPU = Debug|Any CPU
+@@ -15,6 +17,10 @@
+ 		{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+ 		{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+ 		{F7CDFB92-2716-4B40-92F9-77249272A4C8}.Release|Any CPU.Build.0 = Release|Any CPU
++		{9A1AA1B8-8274-456E-9A43-14B0E2FCDE1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
++		{9A1AA1B8-8274-456E-9A43-14B0E2FCDE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
++		{9A1AA1B8-8274-456E-9A43-14B0E2FCDE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
++		{9A1AA1B8-8274-456E-9A43-14B0E2FCDE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+ 	EndGlobalSection
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1690287321926)
++++ b/.idea/modules.xml	(date 1690287321926)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/TL-Practice-2023.iml" filepath="$PROJECT_DIR$/.idea/TL-Practice-2023.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1690287321977)
++++ b/.idea/vcs.xml	(date 1690287321977)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1690287323759)
++++ b/.idea/.gitignore	(date 1690287323759)
+@@ -0,0 +1,5 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/

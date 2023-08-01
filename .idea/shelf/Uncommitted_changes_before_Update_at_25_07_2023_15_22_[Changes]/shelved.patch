@@ -1,0 +1,130 @@
+Index: hw3/create-tables.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw3/create-tables.sql b/hw3/create-tables.sql
+new file mode 100644
+--- /dev/null	(date 1689268952948)
++++ b/hw3/create-tables.sql	(date 1689268952948)
+@@ -0,0 +1,44 @@
++USE SportCompetition;
++
++CREATE TABLE [Coach] (
++	CoachId INT IDENTITY (1,1) CONSTRAINT PK_Coach PRIMARY KEY NOT NULL,
++	FirstName NVARCHAR(50) NOT NULL,
++	LastName NVARCHAR(50) NOT NULL,
++	BirthDate DATE NOT NULL,
++);
++
++CREATE TABLE [Sportsman] (
++	SportsmanId INT IDENTITY (1,1) CONSTRAINT PK_Sportsman PRIMARY KEY NOT NULL,
++	FirstName NVARCHAR(50) NOT NULL,
++	LastName NVARCHAR(50) NOT NULL,
++	CoachId INT CONSTRAINT FK_Sportsman_Coach FOREIGN KEY (CoachId) REFERENCES Coach(CoachId)
++		ON DELETE CASCADE
++		ON UPDATE CASCADE
++)
++
++CREATE TABLE [Competition] (
++	CompetitionId INT IDENTITY (1,1) CONSTRAINT PK_Competition PRIMARY KEY NOT NULL,
++	Date DATE NOT NULL,
++	Title NVARCHAR(100) NOT NULL,
++	Venue NVARCHAR(150) NOT NULL
++)
++
++CREATE TABLE [SportType] (
++	SportTypeId INT IDENTITY (1,1) CONSTRAINT PK_SportType PRIMARY KEY NOT NULL,
++	Title NVARCHAR(50) NOT NULL,
++	UnitOfMeasurment NVARCHAR(20) NOT NULL
++)
++
++CREATE TABLE [Performance] (
++    PerformanceId INT IDENTITY (1,1) CONSTRAINT PK_Performance PRIMARY KEY NOT NULL,
++    Value INT NOT NULL,
++    SportsmanId INT CONSTRAINT FK_Performance_Sportsman FOREIGN KEY (SportsmanId) REFERENCES [Sportsman](SportsmanId)
++		ON DELETE CASCADE
++		ON UPDATE CASCADE,
++    CompetitionId INT CONSTRAINT FK_Performance_Competition FOREIGN KEY (CompetitionId) REFERENCES Competition(CompetitionId)
++		ON DELETE CASCADE
++		ON UPDATE CASCADE,
++	SportTypeId INT CONSTRAINT FK_Performance_SportType FOREIGN KEY (SportTypeId) REFERENCES SportType(SportTypeId)
++		ON DELETE CASCADE
++		ON UPDATE CASCADE,
++);
+\ No newline at end of file
+Index: hw3/delete.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw3/delete.sql b/hw3/delete.sql
+new file mode 100644
+--- /dev/null	(date 1689269015467)
++++ b/hw3/delete.sql	(date 1689269015467)
+@@ -0,0 +1,4 @@
++USE SportCompetition;
++
++DELETE FROM [Coach]
++WHERE CoachId = 3;
+\ No newline at end of file
+Index: hw3/README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/hw3/README.md b/hw3/README.md
+new file mode 100644
+--- /dev/null	(date 1689291335480)
++++ b/hw3/README.md	(date 1689291335480)
+@@ -0,0 +1,49 @@
++## Доменная область: SportCompetition (Спортивные соревнования).
++
++---
++
++![SportCompetition-er-diagramm](SportCompetition-er.jpg)
++
++## Описание
++
++Есть 5 сущностей:
++
++- Тренер
++
++- Спортсмен
++
++- Выступление
++
++- Соревнование
++
++- Вид спорта
++
++### Тренер - Coach
++
++Имеет поля: CoachId (PK), имя, фамилия, дату рождения.
++
++### Спортсмен - Sportsman
++
++Имеет поля: SportsmanId (PK), CoachId (FK), имя, фамилию.
++
++### Соревнование - Competition
++
++Имеет поля: CompetitionId (PK), дату проведения, название, место проведения.
++
++### Вид спорта - SportType
++
++Имеет поля: SportTypeId (PK), название, меру результата.
++
++### Выступление/результат - Performance
++
++Имеет поля: PerformanceId (PK), SportsmanId (FK), SportTypeId (FK), CompetitionId(FK), результат.
++
++## Связи
++
++У одного тренера может быть множество учеников (1 to Many).
++
++У одного соревнования может быть несколько выступлений (1 to Many).
++
++У одного вида спорта может быть множество результатов (1 to Many).
++
++У одного спортсмена может быть 1 выступление (1 to 1).
+\ No newline at end of file

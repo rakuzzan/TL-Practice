@@ -1,9 +1,9 @@
-SELECT Sportsman.FirstName, Sportsman.LastName, Performance.Value, SportType.Title, SportType.UnitOfMeasurment
+п»їSELECT Sportsman.FirstName, Sportsman.LastName, Performance.Value, SportType.Title, SportType.UnitOfMeasurment
 FROM Sportsman
 INNER JOIN Performance ON Sportsman.SportsmanId = Performance.SportsmanId
 INNER JOIN SportType ON Performance.SportTypeId = SportType.SportTypeId;
 
-SELECT Coach.FirstName AS "Имя тренера", Coach.LastName AS "Фамилия тренера",  Sportsman.FirstName AS "Имя Спортсмена", Sportsman.LastName AS "Фамилия Спортсмена"
+SELECT Coach.FirstName AS "РРјСЏ С‚СЂРµРЅРµСЂР°", Coach.LastName AS "Р¤Р°РјРёР»РёСЏ С‚СЂРµРЅРµСЂР°",  Sportsman.FirstName AS "РРјСЏ РЎРїРѕСЂС‚СЃРјРµРЅР°", Sportsman.LastName AS "Р¤Р°РјРёР»РёСЏ РЎРїРѕСЂС‚СЃРјРµРЅР°"
 FROM Coach
 LEFT JOIN Sportsman ON Coach.CoachId = Sportsman.CoachId;
 

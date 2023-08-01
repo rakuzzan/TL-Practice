@@ -1,9 +1,9 @@
-SELECT *
+п»їSELECT *
 FROM Sportsman;
 
 SELECT *
 FROM Sportsman
-WHERE FirstName = 'Андрей';
+WHERE FirstName = 'РђРЅРґСЂРµР№';
 
 SELECT *
 FROM Performance
@@ -11,15 +11,15 @@ WHERE Value > 2;
 
 SELECT *
 FROM Coach
-WHERE FirstName = 'Мария' AND BirthDate >= '1980-01-01';
+WHERE FirstName = 'РњР°СЂРёСЏ' AND BirthDate >= '1980-01-01';
 
 SELECT *
 FROM Coach
-WHERE FirstName = 'Мария' OR BirthDate = '1980-01-01';
+WHERE FirstName = 'РњР°СЂРёСЏ' OR BirthDate = '1980-01-01';
 
 SELECT * 
 FROM SportType
-WHERE UnitOfMeasurment != 'м'
+WHERE UnitOfMeasurment != 'Рј'
 
 SELECT * 
 FROM Competition
