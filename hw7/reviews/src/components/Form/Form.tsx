@@ -1,8 +1,5 @@
 import {useCallback, useState} from 'react';
 import Feedback from "../Feedback/Feedback";
-import StarRating from "../StarRating/StarRating";
-
-
 
 const Form = () => {
 
