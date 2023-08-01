@@ -31,7 +31,7 @@ namespace DatabaseProvider.Repositories.Implementations
             return Entities.Where(a => a.LastName == lastName).ToList();
         }
 
-    public List<Sportsman> GetByCoachId(int coachId)
+        public List<Sportsman> GetByCoachId(int coachId)
         {
             return Entities.Where(a => a.CoachId == coachId).ToList();
         }
