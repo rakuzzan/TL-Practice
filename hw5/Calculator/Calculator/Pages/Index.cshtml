@@ -3,8 +3,29 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="home">
+    <div class="wrapper">
+        <h1 class="title">Калькулятор</h1>
+        <form class="form" method="post">
+            <label class="form__label">
+                Первое число:
+                <input type="number" class="form__input" name="firstNumber" />
+            </label>
+            <label class="form__label">
+                Второе число:
+                <input type="number" class="form__input" name="secondNumber" />
+            </label>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p></p>
+            <label class="form__label">
+                Действие:
+                <select class="form__select" name="operation">
+                    <option class="option" value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+            </label>
+
+            <button type="submit" class="form__button">=</button>
+        </form>
+    </div>
 </div>
+    

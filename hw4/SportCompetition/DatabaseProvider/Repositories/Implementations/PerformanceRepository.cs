@@ -10,6 +10,7 @@ namespace DatabaseProvider.Repositories.Implementations
             : base(context)
         {
         }
+
         public Performance GetById(int id)
         {
             return Entities.Where(a => a.PerformanceId == id).FirstOrDefault();

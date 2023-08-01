@@ -14,7 +14,6 @@ namespace DatabaseProvider.Configurations
             builder.Property(a => a.FirstName).IsRequired().HasMaxLength(50);
             builder.Property(a => a.LastName).IsRequired().HasMaxLength(50);
             builder.Property(a => a.BirthDate).IsRequired();
-
         }
     }
 }

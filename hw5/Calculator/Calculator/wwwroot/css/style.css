@@ -1,0 +1,127 @@
+:root {
+    --main-bg-color: #c9e4f0;
+    --button-color: #2aa1ff;
+    --gray-light-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.home, .result {
+    display: flex;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 150px auto 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 400px;
+    padding: 20px;
+    gap: 24px;
+    border-radius: 10px;
+}
+
+.form__label {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form__input {
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid var(--gray-light-color);
+}
+
+.form__select {
+    height: 40px;
+    font-size: 25px;
+    text-align: center;
+    border: 2px solid var(--gray-light-color);
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.form__button {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--button-color);
+    color: #fff;
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.result__solution {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 0;
+    border-color: var(--gray-light-color);
+}
+
+
+.table__row {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+
+}
+.table__tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.table__cell {
+    border: 1px solid var(--gray-light-color);
+    height: 50px;
+    font-size: 40px;
+    width: 50px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0px;
+}
+
+.table__cell--result {
+    border-top-color: #6b6969;
+}
+
+.table__cell--extra {
+    height: 20px;
+    font-size: 24px;
+    vertical-align: bottom;
+    border: none;
+}

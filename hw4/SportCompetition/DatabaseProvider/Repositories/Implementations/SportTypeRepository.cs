@@ -10,6 +10,7 @@ namespace DatabaseProvider.Repositories.Implementations
             : base(context)
         {
         }
+
         public SportType GetById(int id)
         {
             return Entities.Where(a => a.SportTypeId == id).FirstOrDefault();

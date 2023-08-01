@@ -10,6 +10,7 @@ namespace DatabaseProvider.Repositories.Implementations
             : base(context)
         {
         }
+
         public Competition GetById(int id)
         {
             return Entities.Where(a => a.CompetitionId == id).FirstOrDefault();

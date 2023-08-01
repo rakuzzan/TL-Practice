@@ -5,16 +5,17 @@ namespace Calculator.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
-
-        public IndexModel(ILogger<IndexModel> logger)
+        public IActionResult OnPost()
         {
-            _logger = logger;
-        }
+            if (ModelState.IsValid)
+            {
+                double firstNumber = double.Parse(Request.Form["firstNumber"]);
+                double secondNumber = double.Parse(Request.Form["secondNumber"]);
+                string operation = Request.Form["operation"];
 
-        public void OnGet()
-        {
-
+                return RedirectToPage("/Calculate", new { FirstNumber = firstNumber, SecondNumber = secondNumber, Operation = operation });
+            }
+            return Page();
         }
     }
 }

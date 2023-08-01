@@ -13,7 +13,6 @@ namespace DatabaseProvider.Configurations
 
             builder.Property(a => a.Title).IsRequired().HasMaxLength(50);
             builder.Property(a => a.UnitOfMeasurment).IsRequired().HasMaxLength(20);
-
         }
     }
 }

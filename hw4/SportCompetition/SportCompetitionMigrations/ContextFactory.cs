@@ -16,8 +16,6 @@ namespace SportCompetitionMigrations
                 assembly => assembly.MigrationsAssembly("SportCompetitionMigrations"));
 
             return new ApplicationContext(optionalBuilder.Options);
-
-
         }
     }
 }

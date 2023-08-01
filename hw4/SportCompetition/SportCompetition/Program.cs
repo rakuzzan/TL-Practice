@@ -29,8 +29,6 @@ namespace CoachDB
             _sportsman = new SportsmanRepository(_applicationContext);
             _performance = new PerformanceRepository(_applicationContext);
             _sportType = new SportTypeRepository(_applicationContext);
-
-
         }
 
         public static void ProccessCommands()
@@ -50,8 +48,7 @@ namespace CoachDB
                     case "help":
                         Console.WriteLine($"Usage: XXX-YYY-ZZ parameter parameter parameter ...");
                         break;
-
-                        
+  
                     // Competition
 
                     case "get-all-competitions":
@@ -98,6 +95,7 @@ namespace CoachDB
                         break;
 
                     // Performance
+
                     case "get-all-performances":
                         GetAllPerformances();
                         break;
@@ -131,10 +129,11 @@ namespace CoachDB
                         Console.WriteLine("Unknow command");
                         break;
                 }
-
-
             }
         }
+
+        // Competitions
+
         public static void GetAllCompetitions()
         {
             List<Competition> competitions = _competition.GetAll();
@@ -217,7 +216,6 @@ namespace CoachDB
 
         public static void AddSportsman(List<string> parameters)
         {
-
             Sportsman sportsman = new()
             {
                 FirstName = parameters[1],
@@ -407,6 +405,5 @@ namespace CoachDB
             _sportType.Remove(sportType);
             _sportType.SaveChanges();
         }
-
     }
 }

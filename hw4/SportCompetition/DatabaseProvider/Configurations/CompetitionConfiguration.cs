@@ -14,7 +14,6 @@ namespace DatabaseProvider.Configurations
             builder.Property(a => a.Title).IsRequired().HasMaxLength(100);
             builder.Property(a => a.Date).IsRequired();
             builder.Property(a => a.Venue).IsRequired().HasMaxLength(150);
-
         }
     }
 }

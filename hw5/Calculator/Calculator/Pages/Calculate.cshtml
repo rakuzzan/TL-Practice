@@ -1,0 +1,133 @@
+﻿@page
+@model Calculator.Pages.CalculateModel
+@{
+    ViewData["Title"] = "Calculated page";
+}
+
+<section class="result">
+    <div class="wrapper">
+        <h1 class="title">Результат:</h1>
+        <div class="result__solution">
+            <table class="table">
+                <tbody class="table__tbody">
+                    @if (Model.Operation == "+")
+                    {
+                        <tr class="table__row">
+                            <td class="table__cell table__cell--extra"></td>
+                            @for (int i = 0; i < (Math.Max(Model.FirstNumberDigits.Count, Model.SecondNumberDigits.Count)); i++)
+                            {
+                                if (Model.PlusExtraIndexes.Contains(i))
+                                {
+                                    <td class="table__cell table__cell--extra">1</td>
+                                }
+                                else
+                                {
+                                    <td class="table__cell table__cell--extra"></td>
+                                }
+                            }   
+                        </tr>
+                    }
+
+                    @if (Model.Operation == "-")
+                    {
+                        <tr class="table__row">
+                            <td class="table__cell table__cell--extra"></td>
+                        @for (int i = 0; i < (Math.Max(Model.FirstNumberDigits.Count, Model.SecondNumberDigits.Count)); i++)
+                        {
+                            if (Model.TensIndexes.Contains(i))
+                            {
+                                    <td class="table__cell table__cell--extra">10</td>
+                            }
+                            else
+                            {
+                                    <td class="table__cell table__cell--extra"></td>
+                            }
+                        }
+                        </tr>
+                        <tr class="table__row">
+                            <td class="table__cell table__cell--extra"></td>
+                        @for (int i = 0; i < (Math.Max(Model.FirstNumberDigits.Count, Model.SecondNumberDigits.Count)); i++)
+                        {
+                            if (Model.DotsIndexes.Contains(i))
+                            {
+                                <td class="table__cell table__cell--extra">*</td>
+                            }
+                            else
+                            {
+                                <td class="table__cell table__cell--extra"></td>
+                            }
+                        }
+                        </tr>                          
+                    }
+
+                    <tr class="table__row">
+                        <td rowspan="2" class="table__cell">
+                            @Model.Operation
+                        </td>
+                        @if (Model.FirstNumberDigits.Count < Model.SecondNumberDigits.Count)
+                        {
+                            @for (int i = 0; i < Model.SecondNumberDigits.Count - Model.FirstNumberDigits.Count; i++)
+                            {
+                                <td class="table__cell"></td>
+                            }
+                        }
+                        @foreach (var digit in Model.FirstNumberDigits)
+                        {
+                            <td class="table__cell">@digit</td>
+                        }
+                    </tr>
+
+                    <tr class="table__row">
+                        @if (Model.SecondNumberDigits.Count < Model.FirstNumberDigits.Count)
+                        {
+                            @for (int i = 0; i < Model.FirstNumberDigits.Count - Model.SecondNumberDigits.Count; i++)
+                            {
+                                <td class="table__cell"></td>
+                            }
+                        }
+                        @foreach (var digit in Model.SecondNumberDigits)
+                        {
+                            <td class="table__cell">@digit</td>
+                        }
+                    </tr>
+
+                    <tr class="table__row">
+                        @if (Model.Operation == "+")
+                        {
+                            @if (Model.ResultDigits.Count == Model.FirstNumberDigits.Count ||
+                            Model.ResultDigits.Count == Model.SecondNumberDigits.Count)
+                            {
+                                <td class="table__cell table__cell--result"></td>
+                            }
+                        }
+
+                        @if (Model.Operation == "-")
+                        {
+                            {
+                                @if (Model.IsMinus)
+                                {
+                                    <td class="table__cell table__cell--result">-</td>
+                                }
+                                else
+                                {
+                                    <td class="table__cell table__cell--result"></td>
+                                }
+
+                                @for (int i = 0; i < (Math.Max(Model.FirstNumberDigits.Count, Model.SecondNumberDigits.Count)) - Model.ResultDigits.Count; i++)
+                                {
+                                    <td class="table__cell table__cell--result"></td>
+                                }
+                            }
+                        }
+
+                        @foreach (var digit in Model.ResultDigits)
+                        {
+                            <td class="table__cell table__cell--result">@digit</td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
