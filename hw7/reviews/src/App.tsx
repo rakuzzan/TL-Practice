@@ -33,7 +33,6 @@ const App: FC = () => {
                 rangeInputNames={defaultCriteriaNames}
                 onHandle={handleNewReview}
             />
-
             <ReceivedFeedback
                 reviews={reviews}
             />
