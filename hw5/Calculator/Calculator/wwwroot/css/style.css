@@ -99,7 +99,7 @@ body {
     border-color: inherit;
 
 }
-.table__tbody {
+.table__body {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
