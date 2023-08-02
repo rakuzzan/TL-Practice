@@ -1,0 +1,25 @@
+.converter__graph {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 49%;
+}
+
+.time-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button {
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #a6a6a6;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 6px;
+};
