@@ -1,0 +1,46 @@
+.range-input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 21px;
+    font-size: 20px;
+}
+
+.range-input-name {
+    margin-left: 10px;
+    font: 20px sans-serif;
+}
+
+.range-input-points {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 202px;
+    height: 6px;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+}
+
+.range-input-point {
+    margin-top: -3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.range-input-point.active {
+    background-color: #1e64b7;
+}
+
+.range-input-slider {
+    opacity: 0;
+    width: 200px;
+    height: 6px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}

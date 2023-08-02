@@ -1,9 +1,75 @@
-.Form {
+.review {
     display: flex;
-    width: 385px;
-    height: 325px;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    gap: 44px;
 }
 
-.h1 {
+.review__label {
+    font: 26px sans-serif;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
 
+.review__rating {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+.rating__criteria {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.rating__score {
+    position: absolute;
+    margin-left: 37px;
+    margin-top: -15px;
+    font-size: 44px;
+
+}
+
+.review__form {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.textarea {
+    font-size: 14px;
+    resize: none;
+    overflow: hidden;
+    color: #404040;
+    border-radius: 5px;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    min-height: 113px;
+    padding: 11px 15px;
+    transition: border 0.15s ease-in-out;
+}
+
+.textarea::placeholder {
+    color: #909090;
+}
+
+.textarea:focus {
+    outline: none;
+    border: 1px solid #A0A0A0;
+}
+
+.button {
+    font-size: 14px;
+    width: 119px;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid #DCDCDC;
+    box-sizing: border-box;
+    background-color: #1E65B7;
+    color: #FFF;
+    text-align: center;
+    margin-left: auto;
+    cursor: pointer;
 }

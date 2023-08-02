@@ -1,0 +1,17 @@
+.feedback-block {
+    display: flex;
+    width: 75vw;
+    border-top: 2px solid #DCDCDC;
+    justify-content: center;
+}
+
+.feedback-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 39px;
+    width: 57vw;
+    gap: 39px;
+    height: calc(97vh - 715px);
+    overflow-y: auto;
+}

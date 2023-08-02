@@ -1,0 +1,38 @@
+.feedback {
+    display: flex;
+    flex-direction: row;
+    width: 605px;
+}
+
+.feedback__avatar {
+    width: 50px;
+    height: 50px;
+}
+
+.feedback__text-block {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 0 0 18px;
+    gap: 10px;
+}
+
+.text-block__author {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.text-block__feedback {
+    width: min(451px, 30vw);
+    font-size: 14px;
+    margin: 0;
+    word-break: break-all;
+    white-space: normal;
+}
+
+.feedback__rating {
+    text-align: right;
+    margin-top: 16px;
+    font-size: 24px;
+    font-weight: 500;
+    width: 70px;
+}
