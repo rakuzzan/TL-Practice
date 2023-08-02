@@ -4,12 +4,12 @@ import React, {ChangeEvent, FC, useState} from "react";
 
 type FormProps = {
     rangeInputNames: string[];
-    onForm: (rating: number, text: string) => void;
+    onHandle: (rating: number, text: string) => void;
 };
 
-const Form:FC<FormProps> = ({ rangeInputNames, onForm }) => {
+const Form:FC<FormProps> = ({ rangeInputNames, onHandle }) => {
 
-    const emptyRangeInput: { [name: string] : number; } = {}
+    const emptyRangeInput: { [name: string] : number; } = {};
     rangeInputNames.forEach(name => {
         emptyRangeInput[name] = 1;
     });
@@ -35,10 +35,10 @@ const Form:FC<FormProps> = ({ rangeInputNames, onForm }) => {
         setRangeInputRating(emptyRangeInput);
         setText("");
     };
-    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) =>
+    const handleForm = (event: React.MouseEvent<HTMLButtonElement>) =>
     {
         event.stopPropagation();
-        onForm(rating, text);
+        onHandle(rating, text);
         clearForm();
     };
 
@@ -77,7 +77,7 @@ const Form:FC<FormProps> = ({ rangeInputNames, onForm }) => {
                 <button
                     name="reply-button"
                     className="button"
-                    onClick={handleButtonClick}
+                    onClick={handleForm}
                 >
                     Send
                 </button>

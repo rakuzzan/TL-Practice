@@ -7,7 +7,7 @@ import ReceivedFeedback from "./components/ReceivedFeedback/ReceivedFeedback";
 const App: FC = () => {
     const [reviews, setReviews] = useState<Review[]>([]);
 
-    const defaultCriteriasNames: string[] = [
+    const defaultCriteriaNames: string[] = [
         "Cleanliness",
         "Customer Service",
         "Speed",
@@ -19,7 +19,7 @@ const App: FC = () => {
         setReviews([
             ...reviews,
             {
-                name: "Это ты",
+                name: "You",
                 photo: "src/assets/avatar.png",
                 rating,
                 text,
@@ -30,8 +30,8 @@ const App: FC = () => {
     return (
         <>
             <Form
-                rangeInputNames={defaultCriteriasNames}
-                onForm={handleNewReview}
+                rangeInputNames={defaultCriteriaNames}
+                onHandle={handleNewReview}
             />
 
             <ReceivedFeedback
