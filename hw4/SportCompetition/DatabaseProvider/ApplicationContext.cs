@@ -33,7 +33,7 @@ namespace DatabaseProvider
                 return;
             }
 
-            object value = optionsBuilder.UseSqlServer(_connectionString);
+             optionsBuilder.UseSqlServer(_connectionString);
         }
     }
 }
