@@ -7,7 +7,7 @@ import ReceivedFeedback from "./components/ReceivedFeedback/ReceivedFeedback";
 const App: FC = () => {
     const [reviews, setReviews] = useState<Review[]>([]);
 
-    const defaultCriteriaNames: string[] = [
+    const criteriaNames: string[] = [
         "Cleanliness",
         "Customer Service",
         "Speed",
@@ -30,7 +30,7 @@ const App: FC = () => {
     return (
         <>
             <Form
-                rangeInputNames={defaultCriteriaNames}
+                rangeInputNames={criteriaNames}
                 onHandle={handleNewReview}
             />
             <ReceivedFeedback
